@@ -74,7 +74,7 @@ public class Livre {
 
     public static ArrayList<Livre> findAll(Connection dbConnection){
         ArrayList<Livre> livres = new ArrayList<>();
-        String sql = "SELECT * FROM Livre";
+        String sql = "SELECT id, titre, description, datePublication, genres FROM Livre";
         try (PreparedStatement statement = dbConnection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery();){
 
@@ -162,6 +162,9 @@ public class Livre {
 
     }
 
+    public Object[] toTableRow(){
+        return new Object[]{id, titre, description, datePublication, String.join(", ", genres)};
+    }
 
 
 
