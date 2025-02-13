@@ -65,19 +65,8 @@ public class LivreUI {
 
 
 
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addLivre(connection);
-            }
-        });
-
-        deleteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteLivre(connection);
-            }
-        });
+        addButton.addActionListener(e -> addLivre(connection));
+        deleteButton.addActionListener(e -> deleteLivre(connection));
 
 
 
